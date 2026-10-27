@@ -1,7 +1,7 @@
-# clangd бере флаги з build/compile_commands.json.
-# Ці прапорці розуміє лише GCC — clangd на них лається, тож прибираємо.
-# Системні хедери тулчейна clangd дістає, опитуючи сам компілятор
-# (--query-driver у clangd.arguments, див. settings.json).
+# clangd takes the compile flags from build/compile_commands.json.
+# The ones below are GCC-only, so clangd warns about them and they are removed.
+# System headers come from the toolchain itself: clangd queries the compiler,
+# which needs --query-driver in the editor config (kept out of this repo).
 CompileFlags:
   CompilationDatabase: build
   Remove:
