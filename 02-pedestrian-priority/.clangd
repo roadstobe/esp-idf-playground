@@ -1,0 +1,12 @@
+# clangd бере флаги з build/compile_commands.json.
+# Ці прапорці розуміє лише GCC — clangd на них лається, тож прибираємо.
+# Системні хедери тулчейна clangd дістає, опитуючи сам компілятор
+# (--query-driver у clangd.arguments, див. settings.json).
+CompileFlags:
+  CompilationDatabase: build
+  Remove:
+    - -fno-shrink-wrap
+    - -fstrict-volatile-bitfields
+    - -fno-tree-switch-conversion
+    - -fzero-init-padding-bits=*
+    - -fno-malloc-dce
